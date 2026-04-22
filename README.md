@@ -12,6 +12,18 @@ Run:
 zig fetch --save git+https://github.com/ankane/dist-zig#master
 ```
 
+And update `build.zig`:
+
+```diff
+ const exe = b.addExecutable(.{
+     .root_module = b.createModule(.{
+         .imports = &.{
++            .{ .name = "dist", .module = b.dependency("dist", .{}).module("dist") },
+         },
+     }),
+ });
+```
+
 ## Getting Started
 
 - [Normal](#normal)
