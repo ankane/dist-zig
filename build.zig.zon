@@ -1,0 +1,16 @@
+.{
+    .name = .dist,
+    .version = "0.1.0",
+    .fingerprint = 0x817cd0f748830fd2,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "CHANGELOG.md",
+        "LICENSE-MIT",
+        "README.md",
+        "UNLICENSE"
+    },
+}
