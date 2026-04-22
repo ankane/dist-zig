@@ -9,7 +9,7 @@ PDF, CDF, and percent-point/quantile functions for the normal and Student’s t 
 Run:
 
 ```sh
-zig fetch --save git+https://github.com/ankane/dist-zig#v0.1.0
+zig fetch --save git+https://github.com/ankane/dist-zig#v0.1.1
 ```
 
 And update `build.zig`:
