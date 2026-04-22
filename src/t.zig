@@ -19,11 +19,7 @@ pub fn pdf(x: f64, n: f64) f64 {
 // Algorithm 395: Student's t-distribution.
 // Communications of the ACM, 13(10), 617-619.
 pub fn cdf(x: f64, n: f64) f64 {
-    if (n < 1) {
-        return std.math.nan(f64);
-    }
-
-    if (std.math.isNan(x)) {
+    if (std.math.isNan(x) or std.math.isNan(n) or n < 1) {
         return std.math.nan(f64);
     }
 

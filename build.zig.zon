@@ -2,7 +2,7 @@
     .name = .dist,
     .version = "0.1.0",
     .fingerprint = 0x817cd0f748830fd2,
-    .minimum_zig_version = "0.15.0",
+    .minimum_zig_version = "0.14.0",
     .dependencies = .{},
     .paths = .{
         "build.zig",
