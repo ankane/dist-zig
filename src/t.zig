@@ -57,7 +57,7 @@ pub fn cdf(x: f64, n: f64) f64 {
 
     // make n int
     // n is int between 1 and 200 if made it here
-    var ni: i32 = @trunc(n);
+    var ni: i32 = @intFromFloat(n);
 
     if (ni < 20 and t < 4.0) {
         // nested summation of cosine series
@@ -71,7 +71,7 @@ pub fn cdf(x: f64, n: f64) f64 {
         if (ni > 1) {
             ni -= 2;
             while (ni > 1) {
-                a = (ni - 1) / (b * ni) * a + y;
+                a = @as(f64, @floatFromInt(ni - 1)) / (b * @as(f64, @floatFromInt(ni))) * a + y;
                 ni -= 2;
             }
         }
@@ -81,13 +81,13 @@ pub fn cdf(x: f64, n: f64) f64 {
 
     // tail series expansion for large t-values
     var a: f64 = @sqrt(b);
-    y = a * ni;
+    y = a * @as(f64, @floatFromInt(ni));
     var j: i32 = 0;
     while (a != z) {
         j += 2;
         z = a;
-        y = y * (j - 1) / (b * j);
-        a = a + y / (ni + j);
+        y = y * @as(f64, @floatFromInt(j - 1)) / (b * @as(f64, @floatFromInt(j)));
+        a = a + y / @as(f64, @floatFromInt(ni + j));
     }
     z = 0.0;
     y = 0.0;
@@ -95,7 +95,7 @@ pub fn cdf(x: f64, n: f64) f64 {
 
     // loop (without n + 2 and n - 2)
     while (ni > 1) {
-        a = (ni - 1) / (b * ni) * a + y;
+        a = @as(f64, @floatFromInt(ni - 1)) / (b * @as(f64, @floatFromInt(ni))) * a + y;
         ni -= 2;
     }
     a = if (ni == 0) a / @sqrt(b) else (std.math.atan(y) + a / b) * (2.0 / std.math.pi);
