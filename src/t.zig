@@ -87,7 +87,7 @@ pub fn cdf(x: f64, n: f64) f64 {
         j += 2;
         z = a;
         y = y * @as(f64, @floatFromInt(j - 1)) / (b * @as(f64, @floatFromInt(j)));
-        a = a + y / @as(f64, @floatFromInt(ni + j));
+        a += y / @as(f64, @floatFromInt(ni + j));
     }
     z = 0.0;
     y = 0.0;
