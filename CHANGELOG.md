@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2 (2026-10-04)
 
 - Added support for Zig 0.17
 
