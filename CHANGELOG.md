@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Added support for Zig 0.17
+
 ## 0.1.1 (2026-04-22)
 
 - Added support for Zig 0.14 and 0.15

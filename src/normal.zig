@@ -1,7 +1,6 @@
 const std = @import("std");
-const cmath = @cImport({
-    @cInclude("math.h");
-});
+
+extern "c" fn erf(x: f64) f64;
 
 /// Returns the probability density function (PDF) of the normal distribution.
 pub fn pdf(x: f64, mean: f64, std_dev: f64) f64 {
@@ -19,7 +18,7 @@ pub fn cdf(x: f64, mean: f64, std_dev: f64) f64 {
         return std.math.nan(f64);
     }
 
-    return 0.5 * (1.0 + cmath.erf((x - mean) / (std_dev * std.math.sqrt2)));
+    return 0.5 * (1.0 + erf((x - mean) / (std_dev * std.math.sqrt2)));
 }
 
 /// Returns the percent-point/quantile function (PPF) of the normal distribution.
